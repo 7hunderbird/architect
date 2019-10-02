@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if xcode-select -p > /dev/null 2>&1; then
+    echo "xcode command line tools installed."
+else
+    sudo softwareupdate -i -a --restart
+    xcode-select --install
+fi

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if which -s op; then
+    echo "op is installed, thanks!"
+else
+    OP_ARCH=op_darwin_amd64
+    OP_VERSION=v0.6.1
+    mkdir -p $HOME/src
+    cd $HOME/src
+    curl -s "https://cache.agilebits.com/dist/1P/op/pkg/$OP_VERSION/$OP_ARCH"_"$OP_VERSION.zip" -O
+    mkdir -p $HOME/src/op
+    unzip -uq $OP_ARCH"_"$OP_VERSION.zip -d op
+    chmod +x op/op
+    mv -f op/op /usr/local/bin
+    echo "installed" $(op --version) "op"
+fi
