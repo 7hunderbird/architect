@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+echo 'source /Users/tbird/.rvm/scripts/rvm' >> ~/.bashrc

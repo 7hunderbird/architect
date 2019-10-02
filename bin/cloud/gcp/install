@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+GCP_VERSION=265.0.0
+GCP_ARCH=darwin-x86_64
+
+rm -rf $HOME/google-cloud-sdk
+mkdir -p $HOME/google-cloud-sdk
+
+tmpdir=$(mktemp -d)
+
+cd $tmpdir && curl -fsSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$GCP_VERSION-$GCP_ARCH.tar.gz -O 
+           
+tar -xf google-cloud-sdk-$GCP_VERSION-$GCP_ARCH.tar.gz --directory $HOME
+cd $HOME/google-cloud-sdk
+./install.sh
+
+rm -rf $tmpdir
