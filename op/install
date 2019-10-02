@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+export OP_ARCH=op_darwin_amd64
+export OP_VERSION=v0.6.1
+export OP_DOMAIN=kitestring
+export OP_SECRET_KEY=<ADD_YOUR_SECRET_KEY>
+export OP_EMAIL=tyler.bird@gmail.com
+
+mkdir $HOME/src
+cd $HOME/src
+curl "https://cache.agilebits.com/dist/1P/op/pkg/$OP_VERSION/$OP_ARCH"_"$OP_VERSION.zip" -O
+mkdir -p $HOME/src/op
+unzip -u $OP_ARCH"_"$OP_VERSION.zip -d op
+chmod +x op/op
+mv -f op/op /usr/local/bin
+
+op signin $OP_DOMAIN.1password.com $OP_EMAIL $OP_SECRET_KEY
